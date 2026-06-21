@@ -1,8 +1,14 @@
 # Intermediate Recommender App
 
+![Python](https://shields.io)
+![Flask](https://shields.io)
+![HTML5](https://shields.io)
+![CSS3](https://shields.io)
+![JavaScript](https://shields.io)
+
 An intelligent, web-based decision-support tool designed to help students transition seamlessly from Matriculation to Intermediate education. Built using **Python and Flask**, this application evaluates a student's Matric marks, subject background, personal interests, and long-term career goals to generate highly tailored, logical suggestions for their FSc or ICS academic pathway.
 
-**Live Demo:** [shadowdev1.pythonanywhere.com](https://shadowdev1.pythonanywhere.com/)
+**Live Demo:** [://pythonanywhere.com](https://://pythonanywhere.com/)
 
 ---
 
@@ -29,9 +35,8 @@ Navigating academic choices after Matriculation can be overwhelming for students
 * `static/`: Contains public-facing static assets:
     * `css/style.css`: Custom stylesheets defining the visual layout and tech-minimalist design.
     * `js/script.js`: Client-side scripts managing form validation and interactivity.
-* `templates/`: Jinja2 templates for rendering HTML:
+* `templates/`: **Jinja2** templates for rendering HTML:
     * `index.html`: The primary dashboard and form template for user interaction.
-* `venv/`: Project virtual environment.
 
 ---
 
@@ -43,26 +48,26 @@ To run this project locally, ensure you have **Python 3.x** installed on your sy
 
 Copy and run these commands in your terminal to set up the project locally:
 
+```bash
 # 1. Clone the repository to your local machine
-      git clone [https://github.com/yourusername/intermediate_recommender_app.git}(https://github.com/yourusername/intermediate_recommender_app.git)
+git clone https://github.com
 
 # 2. Navigate into the project directory
-    cd intermediate_recommender_app
+cd intermediate_course_recommender_app
 
 # 3. Create and activate a virtual environment
 # For Windows:
-    python -m venv venv
-    venv\Scripts\activate
-    
+python -m venv venv
+venv\Scripts\activate
+
 # For macOS/Linux:
-    python3 -m venv venv && source
-    venv/bin/activate
+python3 -m venv venv && source venv/bin/activate
 
 # 4. Install the required dependencies
-    pip install -r requirements.txt
+pip install -r requirements.txt
 
 # 5. Start the local development server
-    python app.py
-    
-# Once the server initializes, open your web browser and navigate to the local address provided in your terminal
-    (typically http://127.0.0.1:5000/).
+python app.py
+```
+
+Once the server initializes, open your web browser and navigate to the local address provided in your terminal (typically `http://127.0.0`).
