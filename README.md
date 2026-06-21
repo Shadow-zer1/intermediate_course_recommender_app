@@ -1,14 +1,13 @@
 # Intermediate Recommender App
 
-![Python](https://shields.io)
-![Flask](https://shields.io)
-![HTML5](https://shields.io)
-![CSS3](https://shields.io)
-![JavaScript](https://shields.io)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
 
 An intelligent, web-based decision-support tool designed to help students transition seamlessly from Matriculation to Intermediate education. Built using **Python and Flask**, this application evaluates a student's Matric marks, subject background, personal interests, and long-term career goals to generate highly tailored, logical suggestions for their FSc or ICS academic pathway.
 
-**Live Demo:** [://pythonanywhere.com](https://://pythonanywhere.com/)
+**Live Demo:** [https://shadowdev1.pythonanywhere.com](https://shadowdev1.pythonanywhere.com/)
 
 ---
 
