@@ -1,0 +1,179 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0; /* Changed padding to 0, will add it to main-content wrapper */
+    background-color: #eef4f7;
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Set flex direction to column */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+}
+
+/* Add a new wrapper for your main content (form, result, h1) */
+.main-content-wrapper {
+    display: flex; /* Allows centering of .container */
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align .container to top within this wrapper */
+    flex-grow: 1; /* This wrapper will grow to fill available space */
+    padding: 20px; /* Re-added padding for the main content area */
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    margin: 30px auto; /* Margin inside the flex wrapper */
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+h1 {
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+.input-group {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+input[type="number"],
+input[type="text"] {
+    width: calc(100% - 22px); /* Adjust for padding and border */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width */
+    transition: border-color 0.3s;
+}
+input[type="number"]:focus,
+input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #0056b3;
+}
+#result {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e9f7ef;
+    border: 1px solid #d4edda;
+    border-radius: 8px;
+    display: none; /* Hidden by default */
+    transition: all 0.5s ease-in-out;
+    color: #155724;
+}
+#result p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+#result strong {
+    color: #004085;
+}
+#result ul {
+    list-style-type: disc;
+    margin-left: 25px;
+    padding-left: 0;
+}
+#result li {
+    margin-bottom: 5px;
+}
+.error-message {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+/* Styles for radio and checkbox groups */
+.radio-group, .checkbox-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.radio-group label {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+    margin-left: 10px;
+    width: auto;
+}
+
+/* Styles for vertical alignment of checkboxes within their 'div' wrappers */
+.checkbox-group div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-left: 0;
+    margin-right: 8px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    cursor: pointer;
+    margin-bottom: 0;
+    display: inline;
+}
+
+/* Footer Styles */
+.footer-credits {
+    text-align: center;
+    margin-top: auto; /* Pushes the footer to the bottom */
+    padding: 20px; /* Adjusted padding */
+    font-size: 0.9em;
+    color: #777;
+    border-top: 1px solid #eee;
+    background-color: #f0f8ff;
+    width: 100%; /* Footer spans full width */
+    border-radius: 0; /* No rounded corners for full width */
+    box-shadow: none; /* Removed shadow */
+}
+
+.footer-credits p {
+    margin: 5px auto; /* Center paragraphs within footer, constrain width */
+    max-width: 700px; /* Constrain text width inside footer */
+}
+
+.footer-credits a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer-credits a:hover {
+    text-decoration: underline;
+}

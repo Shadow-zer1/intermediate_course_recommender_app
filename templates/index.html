@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate Study Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Intermediate Study Recommender</h1>
+
+        <form id="recommendationForm">
+            <div class="input-group">
+                <label for="totalMatricMarks">Your Total Matriculation Marks (out of 1200):</label>
+                <input type="number" id="totalMatricMarks" name="totalMatricMarks" min="0" max="1200" required>
+            </div>
+
+            <div class="input-group">
+                <label for="mathMarks">Mathematics Marks (out of 150):</label>
+                <input type="number" id="mathMarks" name="mathMarks" min="0" max="150" required>
+                <small>Enter your marks for Mathematics (e.g., 120).</small>
+            </div>
+
+            <div class="input-group">
+                <label for="physicsMarks">Physics Marks (out of 150):</label>
+                <input type="number" id="physicsMarks" name="physicsMarks" min="0" max="150" required>
+                <small>Enter your marks for Physics (e.g., 110).</small>
+            </div>
+
+            <div class="input-group">
+                <label for="chemistryMarks">Chemistry Marks (out of 150):</label>
+                <input type="number" id="chemistryMarks" name="chemistryMarks" min="0" max="150" required>
+                <small>Enter your marks for Chemistry (e.g., 105).</small>
+            </div>
+
+            <div class="input-group">
+                <label>Did you take Biology or Computer Science in Matric?</label>
+                <div class="radio-group">
+                    <input type="radio" id="option_biology" name="bio_or_comp" value="biology" required>
+                    <label for="option_biology">Biology</label>
+                    <input type="radio" id="option_computer" name="bio_or_comp" value="computer">
+                    <label for="option_computer">Computer Science</label>
+                </div>
+            </div>
+
+            <div class="input-group" id="biologyMarksGroup" style="display: none;">
+                <label for="biologyMarks">Biology Marks (out of 150):</label>
+                <input type="number" id="biologyMarks" name="biologyMarks" min="0" max="150">
+                <small>Enter your marks for Biology (e.g., 115).</small>
+            </div>
+
+            <div class="input-group" id="computerMarksGroup" style="display: none;">
+                <label for="computerMarks">Computer Science Marks (out of 150):</label>
+                <input type="number" id="computerMarks" name="computerMarks" min="0" max="150">
+                <small>Enter your marks for Computer Science (e.g., 125).</small>
+            </div>
+
+            <div class="input-group">
+                <label>Select your primary interests (minimum 5, no max limit enforced here but recommend focusing):</label>
+                <div class="checkbox-group" id="interestCheckboxes">
+                    <div><input type="checkbox" id="interest_medical" name="interests" value="Medical"><label for="interest_medical">Medical/Health</label></div>
+                    <div><input type="checkbox" id="interest_engineering" name="interests" value="Engineering"><label for="interest_engineering">Engineering</label></div>
+                    <div><input type="checkbox" id="interest_technology" name="interests" value="Technology"><label for="interest_technology">Technology/Software</label></div>
+                    <div><input type="checkbox" id="interest_business" name="interests" value="Business"><label for="interest_business">Business/Commerce</label></div>
+                    <div><input type="checkbox" id="interest_arts" name="interests" value="Arts"><label for="interest_arts">Arts/Humanities</label></div>
+                    <div><input type="checkbox" id="interest_problem_solving" name="interests" value="Problem Solving"><label for="interest_problem_solving">Problem Solving</label></div>
+                    <div><input type="checkbox" id="interest_research" name="interests" value="Research"><label for="interest_research">Research</label></div>
+                    <div><input type="checkbox" id="interest_design" name="interests" value="Design"><label for="interest_design">Design/Creativity</label></div>
+                    <div><input type="checkbox" id="interest_helping_people" name="interests" value="Helping People"><label for="interest_helping_people">Helping People</label></div>
+                    <div><input type="checkbox" id="interest_finance" name="interests" value="Finance"><label for="interest_finance">Finance/Accounting</label></div>
+                    <div><input type="checkbox" id="interest_teaching" name="interests" value="Teaching"><label for="interest_teaching">Teaching/Education</label></div>
+                    <div><input type="checkbox" id="interest_writing" name="interests" value="Writing"><label for="interest_writing">Writing/Journalism</label></div>
+                    <div><input type="checkbox" id="interest_law" name="interests" value="Law"><label for="interest_law">Law/Justice</label></div>
+                    <div><input type="checkbox" id="interest_marketing" name="interests" value="Marketing"><label for="interest_marketing">Marketing/Sales</label></div>
+                    <div><input type="checkbox" id="interest_math" name="interests" value="Mathematics"><label for="interest_math">Advanced Mathematics</label></div>
+                    <div><input type="checkbox" id="interest_science" name="interests" value="General Science"><label for="interest_science">General Science</label></div>
+                    <div><input type="checkbox" id="interest_communication" name="interests" value="Communication"><label for="interest_communication">Communication</label></div>
+                    <div><input type="checkbox" id="interest_public_speaking" name="interests" value="Public Speaking"><label for="interest_public_speaking">Public Speaking</label></div>
+                    <div><input type="checkbox" id="interest_gaming" name="interests" value="Game Development"><label for="interest_gaming">Game Development</label></div>
+                    <div><input type="checkbox" id="interest_cybersecurity" name="interests" value="Cybersecurity"><label for="interest_cybersecurity">Cybersecurity</label></div>
+                    <div><input type="checkbox" id="interest_data_science" name="interests" value="Data Science"><label for="interest_data_science">Data Science</label></div>
+                    <div><input type="checkbox" id="interest_robotics" name="interests" value="Robotics"><label for="interest_robotics">Robotics</label></div>
+                    <div><input type="checkbox" id="interest_environment" name="interests" value="Environment"><label for="interest_environment">Environmental Science</label></div>
+                    <div><input type="checkbox" id="interest_social_work" name="interests" value="Social Work"><label for="interest_social_work">Social Work</label></div>
+                    <div><input type="checkbox" id="interest_psychology" name="interests" value="Psychology"><label for="interest_psychology">Psychology</label></div>
+                    </div>
+                <small id="interestMinWarning" style="color: #dc3545; display: none;">Please select at least 5 interests.</small>
+            </div>
+
+            <div class="input-group">
+                <label>Select your top 5 career goals (choose up to 5):</label>
+                <div class="checkbox-group" id="careerGoalCheckboxes">
+                    <div><input type="checkbox" id="career_doctor" name="careerGoals" value="Doctor"><label for="career_doctor">Doctor (MBBS/BDS)</label></div>
+                    <div><input type="checkbox" id="career_engineer" name="careerGoals" value="Engineer"><label for="career_engineer">Engineer (General)</label></div>
+                    <div><input type="checkbox" id="career_software_dev" name="careerGoals" value="Software Developer"><label for="career_software_dev">Software Developer</label></div>
+                    <div><input type="checkbox" id="career_accountant" name="careerGoals" value="Accountant"><label for="career_accountant">Accountant/Auditor</label></div>
+                    <div><input type="checkbox" id="career_teacher" name="careerGoals" value="Teacher"><label for="career_teacher">Teacher/Lecturer</label></div>
+                    <div><input type="checkbox" id="career_architect" name="careerGoals" value="Architect"><label for="career_architect">Architect</label></div>
+                    <div><input type="checkbox" id="career_data_analyst" name="careerGoals" value="Data Analyst"><label for="career_data_analyst">Data Analyst</label></div>
+                    <div><input type="checkbox" id="career_cyber_expert" name="careerGoals" value="Cybersecurity Expert"><label for="career_cyber_expert">Cybersecurity Expert</label></div>
+                    <div><input type="checkbox" id="career_business_manager" name="careerGoals" value="Business Manager"><label for="career_business_manager">Business Manager</label></div>
+                    <div><input type="checkbox" id="career_banker" name="careerGoals" value="Banker"><label for="career_banker">Banker</label></div>
+                    <div><input type="checkbox" id="career_lawyer" name="careerGoals" value="Lawyer"><label for="career_lawyer">Lawyer/Judge</label></div>
+                    <div><input type="checkbox" id="career_journalist" name="careerGoals" value="Journalist"><label for="career_journalist">Journalist</label></div>
+                    <div><input type="checkbox" id="career_artist" name="careerGoals" value="Artist"><label for="career_artist">Artist/Designer</label></div>
+                    <div><input type="checkbox" id="career_researcher" name="careerGoals" value="Researcher"><label for="career_researcher">Researcher</label></div>
+                    <div><input type="checkbox" id="career_govt_officer" name="careerGoals" value="Government Officer"><label for="career_govt_officer">Government Officer (Civil Services)</label></div>
+                    <div><input type="checkbox" id="career_entrepreneur" name="careerGoals" value="Entrepreneur"><label for="career_entrepreneur">Entrepreneur</label></div>
+                    </div>
+                 <small id="careerGoalMinWarning" style="color: #dc3545; display: none;">Please select at least 1 career goal (maximum 5).</small>
+                 <small id="careerGoalMaxWarning" style="color: #dc3545; display: none;">You can select a maximum of 5 career goals.</small>
+            </div>
+
+            <button type="submit">Get Recommendation</button>
+        </form>
+
+        <div id="result">
+            <p><strong>Recommended Stream:</strong> <span id="recommendedStream"></span></p>
+            <p><strong>Details:</strong></p>
+            <ul id="recommendationDetails"></ul>
+            <p style="font-size: 0.8em; color: #666; margin-top: 15px;">
+                Disclaimer: This tool provides general guidance based on your inputs. For personalized academic and career counseling, please consult with an educational expert or career counselor.
+            </p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+        <footer class="footer-credits">
+        <p>Designed and Developed by Ali Javaid</p>
+        <p>For educational purposes. &copy; 2025</p>
+        </footer>
+
+</body>
+</html>
